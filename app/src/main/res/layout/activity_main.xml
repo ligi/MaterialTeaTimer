@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="org.ligi.materialteatimer.MainActivity">
+
+    <LinearLayout
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:paddingTop="48dp"
+            android:id="@+id/timeContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textSize="48sp"
+                tools:text="5m"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textSize="48sp"
+                android:id="@+id/seconds"
+                tools:text="10s"/>
+
+
+    </LinearLayout>
+    <ImageView
+            android:paddingBottom="48dp"
+            android:id="@+id/play_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/vectalign_vector_drawable_start"
+            android:layout_gravity="center_vertical"
+            android:layout_below="@+id/timeContainer"
+            android:layout_centerHorizontal="true"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/tea_recycler"
+            android:layout_below="@+id/play_pause"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+</RelativeLayout>

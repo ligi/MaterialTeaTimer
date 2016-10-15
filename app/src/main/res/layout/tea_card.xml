@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/pass_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+
+        android:orientation="vertical">
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+    >
+        <ImageView
+                android:id="@+id/teaImage"
+                android:padding="8dp"
+                android:layout_width="164dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                tools:src="@drawable/oolong"/>
+
+        <TextView
+                android:id="@+id/tea_name"
+                tools:text="Oolong"
+                android:layout_toRightOf="@id/teaImage"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="32dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_toRightOf="@id/teaImage"
+                  android:layout_below="@id/tea_name"
+                  android:id="@+id/tea_mins"
+                  tools:text="5m"
+                  android:textSize="24dp"
+                  android:fontFamily="sans-serif"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_toRightOf="@id/tea_mins"
+                  android:id="@+id/tea_secs"
+                  android:layout_below="@id/tea_name"
+                  tools:text="10s"
+                  android:textSize="24dp"
+                  android:fontFamily="sans-serif-thin"
+                  android:layout_height="wrap_content"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:id="@+id/tea_temp"
+                  android:layout_below="@id/tea_mins"
+                  android:layout_toRightOf="@id/teaImage"
+                  android:text="90°C"
+                  android:textSize="24dp"
+                  android:fontFamily="sans-serif"
+                  android:layout_height="wrap_content"/>
+
+        <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/infoIcon"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:padding="8dp"
+                android:src="@drawable/ic_action_info_outline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
