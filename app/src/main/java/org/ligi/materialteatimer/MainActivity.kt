@@ -11,6 +11,8 @@ import android.os.Handler
 import android.os.SystemClock
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
+import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -19,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     var handler = Handler()
 
     val alarmManager by lazy { getSystemService(Context.ALARM_SERVICE) as AlarmManager }
-    val pendingTimerReceiver : PendingIntent by lazy {
+    val pendingTimerReceiver: PendingIntent by lazy {
         val intent = Intent(applicationContext, TimerReceiver::class.java)
         PendingIntent.getBroadcast(applicationContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT)
     }
@@ -53,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 if (pause_state) {
                     alarmManager.cancel(pendingTimerReceiver)
                 } else {
-                    if (remaining>0) {
+                    if (remaining > 0) {
                         alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + remaining * 1000, pendingTimerReceiver)
                     }
                 }
@@ -62,8 +64,9 @@ class MainActivity : AppCompatActivity() {
                 play_pause.setImageDrawable(drawable)
                 drawable.start()
             }
+            supportInvalidateOptionsMenu()
 
-            handler.postDelayed(this, 300)
+            handler.postDelayed(this, 50)
         }
     }
 
@@ -84,6 +87,24 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         handler.removeCallbacks(updater)
         super.onPause()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.resetTime).isVisible = Timer.elapsedSeconds() > 0
+        return super.onPrepareOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        R.id.resetTime -> {
+            Timer.resetAndPause()
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
     }
 
     override fun onResume() {
