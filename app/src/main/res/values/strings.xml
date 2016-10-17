@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Material Tea Timer</string>
+    <string name="notification_text_tea_ready">Tea is ready!</string>
 </resources>

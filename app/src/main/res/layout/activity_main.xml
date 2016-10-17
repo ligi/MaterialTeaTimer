@@ -19,21 +19,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         <TextView
+                android:id="@+id/timer_min"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:textSize="48sp"
                 tools:text="5m"/>
         <TextView
+                android:id="@+id/timer_sec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
                 android:textSize="48sp"
-                android:id="@+id/seconds"
                 tools:text="10s"/>
 
 
     </LinearLayout>
+    <android.support.v4.widget.ContentLoadingProgressBar
+            android:progress="10"
+            android:max="20"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
     <ImageView
             android:paddingBottom="48dp"
             android:id="@+id/play_pause"
