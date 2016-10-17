@@ -9,10 +9,14 @@ import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Html
+import android.text.method.LinkMovementMethod
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -102,6 +106,17 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.resetTime -> {
             Timer.resetAndPause()
+            true
+        }
+        R.id.info -> {
+            val textView = layoutInflater.inflate(R.layout.help, null, false).findViewById(R.id.helpText) as TextView
+            textView.text = Html.fromHtml(getString(R.string.help))
+            textView.movementMethod = LinkMovementMethod()
+            AlertDialog.Builder(this)
+                    .setTitle("Help")
+                    .setView(textView)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
             true
         }
         else -> super.onOptionsItemSelected(item)
