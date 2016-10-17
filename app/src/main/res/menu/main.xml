@@ -3,7 +3,7 @@
 
     <item
             app:showAsAction="ifRoom|withText"
-            android:id="@+id/info"
+            android:id="@+id/menuInfo"
             android:icon="@drawable/ic_action_info_outline"
             android:title="info"/>
     <item

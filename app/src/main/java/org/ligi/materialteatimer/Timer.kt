@@ -1,26 +1,28 @@
 package org.ligi.materialteatimer
 
+import android.os.SystemClock
+
 object Timer {
 
-    var startTime = System.currentTimeMillis()
-    var pauseTime: Long? = System.currentTimeMillis()
+    var startTime = SystemClock.elapsedRealtime()
+    var pauseTime: Long? = SystemClock.elapsedRealtime()
 
     fun resetAndPause() {
-        pauseTime = System.currentTimeMillis()
-        startTime = System.currentTimeMillis()
+        pauseTime = SystemClock.elapsedRealtime()
+        startTime = SystemClock.elapsedRealtime()
     }
 
     fun togglePause() {
         if (pauseTime == null) {
-            pauseTime = System.currentTimeMillis()
+            pauseTime = SystemClock.elapsedRealtime()
         } else {
-            startTime = System.currentTimeMillis() - (pauseTime!! - startTime)
+            startTime = SystemClock.elapsedRealtime() - (pauseTime!! - startTime)
             pauseTime = null
         }
     }
 
     fun elapsedSeconds(): Long {
-        val baseTime = pauseTime ?: System.currentTimeMillis()
+        val baseTime = pauseTime ?: SystemClock.elapsedRealtime()
         return (baseTime - startTime) / 1000
     }
 

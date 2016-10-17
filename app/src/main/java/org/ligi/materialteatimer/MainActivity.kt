@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.AnimatedVectorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
@@ -60,7 +61,11 @@ class MainActivity : AppCompatActivity() {
                     alarmManager.cancel(pendingTimerReceiver)
                 } else {
                     if (remaining > 0) {
-                        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + remaining * 1000, pendingTimerReceiver)
+                        if (Build.VERSION.SDK_INT >= 19) {
+                            alarmManager.setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + remaining * 1000, pendingTimerReceiver)
+                        } else {
+                            alarmManager.setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + remaining * 1000, pendingTimerReceiver)
+                        }
                     }
                 }
 
@@ -108,12 +113,11 @@ class MainActivity : AppCompatActivity() {
             Timer.resetAndPause()
             true
         }
-        R.id.info -> {
+        R.id.menuInfo -> {
             val textView = layoutInflater.inflate(R.layout.help, null, false).findViewById(R.id.helpText) as TextView
             textView.text = Html.fromHtml(getString(R.string.help))
             textView.movementMethod = LinkMovementMethod()
             AlertDialog.Builder(this)
-                    .setTitle("Help")
                     .setView(textView)
                     .setPositiveButton(android.R.string.ok, null)
                     .show()
