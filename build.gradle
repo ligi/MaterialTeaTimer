@@ -1,16 +1,28 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.0.4'
+    ext {
+        kotlin_version = "1.0.4"
+        support_version = "24.2.1"
+    }
     repositories {
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'de.mobilej.unmock:UnMockPlugin:0.3.6'
+
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.12.0'
+        classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.2.0'
+
+        classpath 'com.google.gms:google-services:3.0.0'
+
+        // http://stackoverflow.com/a/33889117/322642
+        classpath 'com.github.JakeWharton:sdk-manager-plugin:220bf7a88a7072df3ed16dc8466fb144f2817070'
     }
 }
 

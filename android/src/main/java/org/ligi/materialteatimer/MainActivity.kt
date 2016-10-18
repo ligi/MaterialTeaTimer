@@ -1,5 +1,6 @@
 package org.ligi.materialteatimer
 
+import android.annotation.TargetApi
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
@@ -10,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
+import android.support.graphics.drawable.VectorDrawableCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -64,18 +66,29 @@ class MainActivity : AppCompatActivity() {
                         if (Build.VERSION.SDK_INT >= 19) {
                             alarmManager.setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + remaining * 1000, pendingTimerReceiver)
                         } else {
-                            alarmManager.setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + remaining * 1000, pendingTimerReceiver)
+                            alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + remaining * 1000, pendingTimerReceiver)
                         }
                     }
                 }
 
-                val drawable = getDrawable(if (pause_state) R.drawable.vectalign_animated_vector_drawable_end_to_start else R.drawable.vectalign_animated_vector_drawable_start_to_end) as AnimatedVectorDrawable
-                play_pause.setImageDrawable(drawable)
-                drawable.start()
+                if (Build.VERSION.SDK_INT >= 21) {
+                    changeDrawableWithAnimation()
+                } else {
+                    val nextDrawable = if (pause_state) R.drawable.vectalign_vector_drawable_start else R.drawable.vectalign_vector_drawable_end
+                    val drawable = VectorDrawableCompat.create(resources, nextDrawable, theme)
+                    play_pause.setImageDrawable(drawable)
+                }
             }
             supportInvalidateOptionsMenu()
 
             handler.postDelayed(this, 50)
+        }
+
+        @TargetApi(21)
+        private fun changeDrawableWithAnimation() {
+            val drawable = getDrawable(if (pause_state) R.drawable.vectalign_animated_vector_drawable_end_to_start else R.drawable.vectalign_animated_vector_drawable_start_to_end) as AnimatedVectorDrawable
+            play_pause.setImageDrawable(drawable)
+            drawable.start()
         }
     }
 
