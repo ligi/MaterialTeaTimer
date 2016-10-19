@@ -1,6 +1,11 @@
+[![Android app on Google Play](http://ligi.de/img/play_badge.png)](https://play.google.com/store/apps/details?id=org.ligi.materialteatimer)
+[![Android app on FDroid](http://ligi.de/img/fdroid_badge.png)](https://f-droid.org/repository/browse/?fdid=org.ligi.materialteatimer)
+
 ### What is this
 
 This project emerged as a tea-timer is something I nearly use every day and the app I was using so far was not ideal to me. I used the only tea timer so far on FDroid which was working but visually not really pleasing and required more clicks than needed.
+
+![](https://github.com/ligi/MaterialTeaTimer/raw/master/assets/1024x500.png)
 
 ### License
 
