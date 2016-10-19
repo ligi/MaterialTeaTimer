@@ -32,10 +32,18 @@ android {
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
 
-    flavorDimensions "build"
+
+    flavorDimensions "build", "fire"
 
     productFlavors {
 
+        withFirebase {
+            dimension "fire"
+        }
+
+        noFirebase {
+            dimension "fire"
+        }
 
         dev {
             dimension "build"
@@ -76,6 +84,8 @@ dependencies {
 
     compile "com.android.support:percent:$support_version"
 
+    withFirebaseCompile 'com.google.firebase:firebase-core:9.6.1'
+
     androidTestCompile "com.android.support:support-annotations:$support_version"
     androidTestCompile "com.android.support:appcompat-v7:$support_version"
     androidTestCompile "com.android.support:design:$support_version"
@@ -97,4 +107,19 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+if (hasProperty("gms")) {
+    apply plugin: 'com.google.gms.google-services'
+}
+
+android.applicationVariants.all { variant ->
+    if (!variant.name.contains("oFirebase")) {
+        project.tasks.each { t ->
+            if (t.name.contains("GoogleServices")) {
+                // Remove google services plugin
+                variant.getVariantData().resourceGenTask.getTaskDependencies().values.remove(t);
+            }
+        }
+    }
 }
