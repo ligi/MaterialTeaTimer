@@ -49,7 +49,7 @@
                   android:id="@+id/tea_temp"
                   android:layout_below="@id/tea_mins"
                   android:layout_toRightOf="@id/teaImage"
-                  android:text="90°C"
+                  tools:text="90°C"
                   android:textSize="24sp"
                   android:fontFamily="sans-serif"
                   android:layout_height="wrap_content"/>

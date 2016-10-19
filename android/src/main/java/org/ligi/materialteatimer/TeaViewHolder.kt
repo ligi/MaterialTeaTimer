@@ -1,5 +1,6 @@
 package org.ligi.materialteatimer
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.support.v7.widget.RecyclerView
@@ -11,7 +12,7 @@ class TeaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val teaName = itemView.findViewById(R.id.tea_name) as TextView
     val teaImage = itemView.findViewById(R.id.teaImage) as ImageView
-    val infoIcon = itemView.findViewById(R.id.infoIcon) as ImageView
+    val infoIcon = itemView.findViewById(R.id.infoIcon) as ImageView?
     val minutes = itemView.findViewById(R.id.tea_mins) as TextView
     val seconds = itemView.findViewById(R.id.tea_secs) as TextView
     val temperature = itemView.findViewById(R.id.tea_temp) as TextView
@@ -27,7 +28,7 @@ class TeaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             temp += ".." + teaInfo.tempMax
         }
         temperature.text = temp + "°C"
-        infoIcon.setOnClickListener {
+        infoIcon?.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(teaInfo.url)
             itemView.context.startActivity(intent)
@@ -36,6 +37,7 @@ class TeaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.setOnClickListener {
             Timer.resetAndPause()
             TeaProvider.currentTea = teaInfo
+            (itemView.context as Activity).finish()
         }
     }
 }

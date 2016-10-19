@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.percent.PercentRelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
+        android:background="@android:color/white"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin"
         tools:context="org.ligi.materialteatimer.MainActivity">
 
     <LinearLayout
@@ -48,9 +45,65 @@
             android:layout_below="@+id/timeContainer"
             android:layout_centerHorizontal="true"/>
 
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/tea_recycler"
-            android:layout_below="@+id/play_pause"
-            android:layout_width="match_parent"
+    <ImageView
+            android:layout_below="@id/play_pause"
+            android:id="@+id/teaImage"
+            android:padding="8dp"
+            android:layout_centerInParent="true"
+            app:layout_widthPercent="66%"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            tools:src="@drawable/oolong"/>
+
+    <TextView
+            android:layout_below="@id/teaImage"
+            android:id="@+id/tea_name"
+            tools:text="Oolong"
+            android:layout_centerInParent="true"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="32sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-</RelativeLayout>
+
+    <LinearLayout
+            android:id="@+id/tea_time"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/tea_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content"
+
+                  android:id="@+id/tea_mins"
+                  tools:text="5m"
+                  android:textSize="24sp"
+                  android:fontFamily="sans-serif"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_toRightOf="@id/tea_mins"
+                  android:id="@+id/tea_secs"
+                  android:layout_below="@id/tea_name"
+                  tools:text="10s"
+                  android:textSize="24sp"
+                  android:fontFamily="sans-serif-thin"
+                  android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <TextView android:layout_width="wrap_content"
+              android:id="@+id/tea_temp"
+              android:layout_below="@id/tea_time"
+              android:layout_centerInParent="true"
+              android:text="90°C"
+              android:textSize="24sp"
+              android:fontFamily="sans-serif"
+              android:layout_height="wrap_content"/>
+
+
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="16dp"
+            app:srcCompat="@drawable/ic_editor_mode_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+</android.support.percent.PercentRelativeLayout>

@@ -14,7 +14,6 @@ import android.os.SystemClock
 import android.support.graphics.drawable.VectorDrawableCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.view.Menu
@@ -102,8 +101,9 @@ class MainActivity : AppCompatActivity() {
             Timer.togglePause()
         }
 
-        tea_recycler.layoutManager = LinearLayoutManager(this)
-        tea_recycler.adapter = TeaAdapter()
+        fab.setOnClickListener {
+            startActivity(Intent(this,TeaListActivity::class.java))
+        }
     }
 
     override fun onPause() {
@@ -142,6 +142,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         handler.post(updater)
+        TeaViewHolder(window.decorView).bind(TeaProvider.currentTea)
     }
 }
 
