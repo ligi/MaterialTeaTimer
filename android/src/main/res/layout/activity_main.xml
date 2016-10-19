@@ -46,6 +46,7 @@
             android:layout_centerHorizontal="true"/>
 
     <ImageView
+            android:transitionName="@string/tea_transition"
             android:layout_below="@id/play_pause"
             android:id="@+id/teaImage"
             android:padding="8dp"

@@ -1,8 +1,11 @@
 package org.ligi.materialteatimer
 
+import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
@@ -37,7 +40,25 @@ class TeaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.setOnClickListener {
             Timer.resetAndPause()
             TeaProvider.currentTea = teaInfo
-            (itemView.context as Activity).finish()
+
+            val activity = itemView.context as Activity
+            val intent = Intent(activity, MainActivity::class.java)
+
+            if (Build.VERSION.SDK_INT >= 21) {
+                makeTransition(activity, intent)
+            } else {
+                activity.startActivity(intent)
+            }
+
+            itemView.postDelayed({
+                activity.finish()
+            }, 1000)
         }
+    }
+
+    @TargetApi(21)
+    private fun makeTransition(activity: Activity, intent: Intent) {
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, teaImage as View, activity.getString(R.string.tea_transition))
+        activity.startActivity(intent, options.toBundle())
     }
 }

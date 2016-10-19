@@ -1,5 +1,6 @@
 package org.ligi.materialteatimer
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -21,6 +22,7 @@ class TeaListActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId){
         android.R.id.home -> {
+            startActivity(Intent(this,MainActivity::class.java))
             finish()
             true
         }

@@ -102,7 +102,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener {
-            startActivity(Intent(this,TeaListActivity::class.java))
+            startActivity(Intent(this, TeaListActivity::class.java))
+            handler.postDelayed({ finish() },1000)
         }
     }
 
