@@ -84,6 +84,8 @@ dependencies {
 
     compile "com.android.support:percent:$support_version"
 
+    compile 'com.chibatching:kotpref:1.4.0'
+
     withFirebaseCompile 'com.google.firebase:firebase-core:9.6.1'
 
     androidTestCompile "com.android.support:support-annotations:$support_version"

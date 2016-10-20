@@ -51,6 +51,7 @@ class TeaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
             itemView.setOnClickListener {
                 Timer.resetAndPause()
+                State.lastSelectedTeaName = teaInfo.name
                 TeaProvider.currentTea = teaInfo
 
                 val activity = itemView.context as Activity

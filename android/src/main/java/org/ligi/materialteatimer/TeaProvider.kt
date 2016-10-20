@@ -10,6 +10,6 @@ object TeaProvider {
             TeaInfo("Peppermint", R.drawable.peppermint, 3 * 60, 90, 95, "https://en.wikipedia.org/wiki/Peppermint")
     )
 
-    var currentTea = teas[0]
+    var currentTea = teas.firstOrNull() { it.name.equals(State.lastSelectedTeaName) } ?: teas[0]
 
 }
