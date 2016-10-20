@@ -1,6 +1,7 @@
 package org.ligi.materialteatimer
 
 import android.annotation.TargetApi
+import android.app.Activity
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
@@ -12,12 +13,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
 import android.support.graphics.drawable.VectorDrawableCompat
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -102,9 +105,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener {
-            startActivity(Intent(this, TeaListActivity::class.java))
-            handler.postDelayed({ finish() },1000)
+            val listIntent = Intent(this, TeaListActivity::class.java)
+
+            if (Build.VERSION.SDK_INT >= 21) {
+                makeTransition(this, listIntent)
+            } else {
+                startActivity(listIntent)
+            }
+            handler.postDelayed({ finish() }, 1000)
         }
+    }
+
+    @TargetApi(21)
+    private fun makeTransition(activity: Activity, intent: Intent) {
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, teaImage as View, getString(R.string.tea_transition_from_main))
+        activity.startActivity(intent, options.toBundle())
     }
 
     override fun onPause() {

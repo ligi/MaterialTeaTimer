@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="tea_transition">teaimage</string>
+    <string name="tea_transition_to_main">teaimage_to_main</string>
+    <string name="tea_transition_from_main">teaimage_from_main</string>
 </resources>
