@@ -56,8 +56,10 @@ class MainActivity : AppCompatActivity() {
             timer_min.text = prefix + Math.abs(remaining / 60).toString() + "m"
             timer_sec.text = Math.abs(remaining % 60).toString() + "s"
 
-            if (pause_state != Timer.isPaused()) {
+            tea_progress.max = TeaProvider.currentTea.brewTime
+            tea_progress.progress = Timer.elapsedSeconds().toInt()
 
+            if (pause_state != Timer.isPaused()) {
 
                 pause_state = Timer.isPaused()
 
