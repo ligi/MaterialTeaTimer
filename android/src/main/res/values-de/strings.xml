@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Material Tea Timer</string>
+    <string name="notification_text_tea_ready">Tee ist fertig!</string>
+    <string name="help">
+<![CDATA[
+<h1>Was ist das hier</h1>
+
+Dieses Projekt entstand, da ein Tee-Timer etwas ist, was ich so ziemlich jeden Tag benutze. Die damals einzig andere ähnliche App, die im FDroid Store erhältlich war, funktionierte zwar, war jedoch visuell nicht ansprechend und für mich zu umständlich zu bedienen.
+
+<h1>Lizenz</h1>
+
+GPLv3, du findest den <a href="http://github.com/ligi/materialteatimer">Quelltext auf Github</a>
+
+<h1>Mitmachen</h1>
+
+Wenn du weiteren guten Tee kennst, oder schöne Bilder mit weißem Hintergrgund hast, die man frei verwenden kann - schick sie mir bitte! Schreib mir außerdem eine Mail, wenn du übersetzen möchtest.
+
+<h1>Bildquellen</h1>
+
+Für das Icon diente die folgende SVG-Datei als Quelle: Teapot by <a href="https://thenounproject.com/erinagnoli/">Erin Agnoli beim Noun Project</a>
+<br/>
+Für die Tee Bilder:<br/><br/>
+<br/>
+Oolong-Tee:<br/>
+By <a href="https://en.wikipedia.org/wiki/User:Iateasquirrel" class="extiw" title="en:User:Iateasquirrel">Iateasquirrel</a> auf der <a href="https://en.wikipedia.org/wiki/" class="extiw" title="w:">englischsprachigen Wikipedia</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=6019856">Link</a><br/>
+<br/>
+Rooibos-Tee:<br/>
+Von © soultea.de (<a rel="nofollow" class="external free" href="http://www.soultea.de/">http://www.soultea.de/</a>), Fotograf André Helbig (<a rel="nofollow" class="external free" href="http://andrehelbig.de/">http://andrehelbig.de/</a>), <a href="http://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=22907986">Link</a><br/>
+<br/>
+Schwarzer Tee:<br/>
+Von Patrick Kolencherry - <a rel="nofollow" class="external free" href="http://www.flickr.com/photos/kolnstyle/2782574755">http://www.flickr.com/photos/kolnstyle/2782574755</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=4598113">Link</a><br/>
+<br/>
+Gründer Tee:<br/>
+Von <a href="http://commons.wikimedia.org/wiki/User:WJkoko" title="User:WJkoko">WJ Houtman</a> - <span class="int-own-work" lang="en">Eigenes Werk</span>, <a href="http://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=2976033">Link</a><br/>
+<br/>
+Pfefferminz:<br/>
+Von <a href="http://commons.wikimedia.org/wiki/User:Evan-Amos" title="User:Evan-Amos">Evan-Amos</a> - <span class="int-own-work" lang="en">Eigenes Werk</span>, gemeinfrei, <a href="https://commons.wikimedia.org/w/index.php?curid=33735322">Link</a><br/>
+
+]]>
+</string>
+    <string name="info">Info</string>
+</resources>
