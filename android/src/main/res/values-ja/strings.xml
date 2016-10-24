@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">マテリアル ティータイマー</string>
+    <string name="notification_text_tea_ready">お茶ができました!</string>
+    <string name="help">
+<![CDATA[
+<h1>これは何ですか</h1>
+
+このティータイマーとして作成したプロジェクトは、私がほぼ毎日使用しているものです。私がこれまで使っていたアプリは、私には理想的ではありませんでした。私が FDroid で使用していたティータイマーは、動作するものの視覚的にあまり美しくありませんでしたし、必要以上にクリックする必要がありました。
+
+<h1>ライセンス</h1>
+
+GPLv3 <a href="http://github.com/ligi/materialteatimer">github でコード</a> を見ることができます
+
+<h1>貢献</h1>
+
+もっと良い機能をご存じであったり、白い背景に自由に使用することができる素敵な画像を提供することができる場合は - 私にそれを送ってください! 翻訳したい場合にも、私にメールを送ってください。
+
+<h1>画像の帰属</h1>
+
+アイコンの svg は以下がベースです: ティーポット by <a href="https://thenounproject.com/erinagnoli/">Erin Agnoli on the Noun Project</a>
+<br/>
+お茶:<br/><br/>
+<br/>
+烏龍:<br/>
+By <a href="https://en.wikipedia.org/wiki/User:Iateasquirrel" class="extiw" title="en:User:Iateasquirrel">Iateasquirrel</a> at the <a href="https://en.wikipedia.org/wiki/" class="extiw" title="w:">English language Wikipedia</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=6019856">リンク</a><br/>
+<br/>
+ルイボス:<br/>
+By © soultea.de (<a rel="nofollow" class="external free" href="http://www.soultea.de/">http://www.soultea.de/</a>), Photographer André Helbig (<a rel="nofollow" class="external free" href="http://andrehelbig.de/">http://andrehelbig.de/</a>), <a href="http://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=22907986">リンク</a><br/>
+<br/>
+紅茶:<br/>
+By Patrick Kolencherry - <a rel="nofollow" class="external free" href="http://www.flickr.com/photos/kolnstyle/2782574755">http://www.flickr.com/photos/kolnstyle/2782574755</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=4598113">リンク</a><br/>
+<br/>
+緑茶:<br/>
+By <a href="http://commons.wikimedia.org/wiki/User:WJkoko" title="User:WJkoko">WJ Houtman</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="http://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=2976033">リンク</a><br/>
+<br/>
+ペパーミント:<br/>
+By <a href="http://commons.wikimedia.org/wiki/User:Evan-Amos" title="User:Evan-Amos">Evan-Amos</a> - <span class="int-own-work" lang="en">Own work</span>, パブリックドメイン, <a href="https://commons.wikimedia.org/w/index.php?curid=33735322">リンク</a><br/>
+
+]]>
+</string>
+    <string name="info">情報</string>
+</resources>
