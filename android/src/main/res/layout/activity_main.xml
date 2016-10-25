@@ -99,7 +99,7 @@
               android:id="@+id/tea_temp"
               android:layout_below="@id/tea_time"
               android:layout_centerInParent="true"
-              android:text="90°C"
+              tools:text="90°C"
               android:textSize="24sp"
               android:fontFamily="sans-serif"
               android:layout_height="wrap_content"/>
