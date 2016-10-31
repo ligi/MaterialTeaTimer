@@ -8,44 +8,35 @@ import android.os.Build
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
+import kotlinx.android.synthetic.main.tea_card.view.*
 
 class TeaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    val teaName = itemView.findViewById(R.id.tea_name) as TextView
-    val teaImage = itemView.findViewById(R.id.teaImage) as ImageView
-    val minutes = itemView.findViewById(R.id.tea_mins) as TextView
-    val seconds = itemView.findViewById(R.id.tea_secs) as TextView
-    val temperature = itemView.findViewById(R.id.tea_temp) as TextView
-
-    val infoIcon = itemView.findViewById(R.id.infoIcon) as ImageView?
-
     fun bind(teaInfo: TeaInfo) {
-        teaName.text = teaInfo.name
-        teaImage.setImageResource(teaInfo.imageRes)
-        minutes.text = (teaInfo.brewTime / 60).toString() + "m"
-        seconds.text = (teaInfo.brewTime % 60).toString() + "s"
+        itemView.tea_name.text = teaInfo.name
+        itemView.teaImage.teaImage.setImageResource(teaInfo.imageRes)
+        itemView.tea_mins.text = (teaInfo.brewTime / 60).toString() + "m"
+        itemView.tea_secs.text = (teaInfo.brewTime % 60).toString() + "s"
 
         var temp = teaInfo.temp.toString()
         if (teaInfo.tempMax > 0) {
             temp += ".." + teaInfo.tempMax
         }
-        temperature.text = temp + "°C"
+        itemView.tea_temp.text = temp + "°C"
 
-        if (infoIcon != null) {
+        if (itemView.infoIcon != null) {
 
-            infoIcon.setOnClickListener {
+            itemView.infoIcon.setOnClickListener {
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.data = Uri.parse(teaInfo.url)
                 itemView.context.startActivity(intent)
             }
 
             if (Build.VERSION.SDK_INT >= 21) {
-                if (TeaProvider.currentTea.equals(teaInfo)) {
-                    teaImage.transitionName = teaImage.context.getString(R.string.tea_transition_from_main)
+                itemView.teaImage.transitionName  = if (TeaProvider.currentTea.equals(teaInfo)) {
+                    itemView.teaImage.context.getString(R.string.tea_transition_from_main)
                 } else {
-                    teaImage.transitionName = null
+                    null
                 }
             }
 
@@ -72,7 +63,7 @@ class TeaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     @TargetApi(21)
     private fun makeTransition(activity: Activity, intent: Intent) {
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, teaImage as View, activity.getString(R.string.tea_transition_to_main))
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, itemView.teaImage as View, activity.getString(R.string.tea_transition_to_main))
         activity.startActivity(intent, options.toBundle())
     }
 }
