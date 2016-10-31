@@ -16,13 +16,13 @@ import android.support.graphics.drawable.VectorDrawableCompat
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
+import org.ligi.compat.HtmlCompat
 
 
 class MainActivity : AppCompatActivity() {
@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
         }
         R.id.menuInfo -> {
             val textView = layoutInflater.inflate(R.layout.help, null, false).findViewById(R.id.helpText) as TextView
-            textView.text = Html.fromHtml(getString(R.string.help))
+            textView.text = HtmlCompat.fromHtml(getString(R.string.help))
             textView.movementMethod = LinkMovementMethod()
             AlertDialog.Builder(this)
                     .setView(textView)
