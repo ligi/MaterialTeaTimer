@@ -10,5 +10,5 @@
             app:showAsAction="ifRoom|withText"
             android:id="@+id/resetTime"
             android:icon="@drawable/ic_action_hourglass_empty"
-            android:title="reset"/>
+            android:title="@string/reset"/>
 </menu>
