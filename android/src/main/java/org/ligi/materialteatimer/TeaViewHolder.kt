@@ -33,7 +33,7 @@ class TeaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             }
 
             if (Build.VERSION.SDK_INT >= 21) {
-                itemView.teaImage.transitionName  = if (TeaProvider.currentTea.equals(teaInfo)) {
+                itemView.teaImage.transitionName  = if (TeaProvider.currentTea == teaInfo) {
                     itemView.teaImage.context.getString(R.string.tea_transition_from_main)
                 } else {
                     null
