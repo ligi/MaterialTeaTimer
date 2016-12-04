@@ -98,19 +98,8 @@ dependencies {
     androidTestCompile "com.android.support:appcompat-v7:$support_version"
     androidTestCompile "com.android.support:design:$support_version"
 
-    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2.2') {
-        // http://stackoverflow.com/questions/30578243/why-would-adding-espresso-contrib-cause-an-inflateexception
-        exclude group: 'com.android.support', module: 'appcompat'
-        exclude group: 'com.android.support', module: 'support-v4'
-        exclude module: 'recyclerview-v7'
-    }
 
-    androidTestCompile('com.android.support.test.espresso:espresso-web:2.2.2')
-    androidTestCompile 'com.squareup.spoon:spoon-client:1.7.0'
-    androidTestCompile 'com.squareup.assertj:assertj-android:1.1.1'
-    androidTestCompile 'org.mockito:mockito-core:1.9.5'
-    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
-    androidTestCompile 'com.jraska:falcon-spoon-compat:1.0.3'
+    androidTestCompile 'com.github.ligi:trulesk:0.9'
 
 }
 
