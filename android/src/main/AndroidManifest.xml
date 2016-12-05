@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <receiver android:name=".TimerReceiver"/>
+        <receiver android:name=".receiver.TimerReceiver"/>
+        <receiver android:name=".receiver.CancelNotificationReceiver"/>
     </application>
 
 </manifest>

@@ -2,10 +2,8 @@ package org.ligi.materialteatimer
 
 import android.annotation.TargetApi
 import android.app.Activity
-import android.app.AlarmManager
 import android.app.AlarmManager.ELAPSED_REALTIME_WAKEUP
 import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.AnimatedVectorDrawable
@@ -24,14 +22,15 @@ import android.view.View
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import org.ligi.compat.HtmlCompat
+import org.ligi.kaxt.getAlarmManager
 import org.ligi.kaxt.setExactAndAllowWhileIdleCompat
+import org.ligi.materialteatimer.receiver.TimerReceiver
 
 
 class MainActivity : AppCompatActivity() {
 
     var handler = Handler()
 
-    val alarmManager by lazy { getSystemService(Context.ALARM_SERVICE) as AlarmManager }
     val pendingTimerReceiver: PendingIntent by lazy {
         val intent = Intent(applicationContext, TimerReceiver::class.java)
         PendingIntent.getBroadcast(applicationContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT)
@@ -66,11 +65,11 @@ class MainActivity : AppCompatActivity() {
                 pause_state = Timer.isPaused()
 
                 if (pause_state) {
-                    alarmManager.cancel(pendingTimerReceiver)
+                    getAlarmManager().cancel(pendingTimerReceiver)
                 } else {
                     if (remaining > 0) {
                         val triggerAtMillis = SystemClock.elapsedRealtime() + remaining * 1000
-                        alarmManager.setExactAndAllowWhileIdleCompat(ELAPSED_REALTIME_WAKEUP, triggerAtMillis, pendingTimerReceiver)
+                        getAlarmManager().setExactAndAllowWhileIdleCompat(ELAPSED_REALTIME_WAKEUP, triggerAtMillis, pendingTimerReceiver)
                     }
                 }
 
