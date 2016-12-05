@@ -3,6 +3,7 @@ package org.ligi.materialteatimer
 import android.annotation.TargetApi
 import android.app.Activity
 import android.app.AlarmManager
+import android.app.AlarmManager.ELAPSED_REALTIME_WAKEUP
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
@@ -23,6 +24,7 @@ import android.view.View
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import org.ligi.compat.HtmlCompat
+import org.ligi.kaxt.setExactAndAllowWhileIdleCompat
 
 
 class MainActivity : AppCompatActivity() {
@@ -67,11 +69,8 @@ class MainActivity : AppCompatActivity() {
                     alarmManager.cancel(pendingTimerReceiver)
                 } else {
                     if (remaining > 0) {
-                        if (Build.VERSION.SDK_INT >= 19) {
-                            alarmManager.setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + remaining * 1000, pendingTimerReceiver)
-                        } else {
-                            alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + remaining * 1000, pendingTimerReceiver)
-                        }
+                        val triggerAtMillis = SystemClock.elapsedRealtime() + remaining * 1000
+                        alarmManager.setExactAndAllowWhileIdleCompat(ELAPSED_REALTIME_WAKEUP, triggerAtMillis, pendingTimerReceiver)
                     }
                 }
 

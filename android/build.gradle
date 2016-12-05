@@ -91,6 +91,7 @@ dependencies {
     compile 'com.chibatching:kotpref:1.4.0'
 
     compile 'com.github.ligi:ExtraCompats:0.4'
+    compile 'com.github.ligi:KAXT:0.11'
 
     withFirebaseCompile 'com.google.firebase:firebase-core:9.6.1'
 
