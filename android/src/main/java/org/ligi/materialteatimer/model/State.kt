@@ -1,4 +1,4 @@
-package org.ligi.materialteatimer
+package org.ligi.materialteatimer.model
 
 import com.chibatching.kotpref.KotprefModel
 
