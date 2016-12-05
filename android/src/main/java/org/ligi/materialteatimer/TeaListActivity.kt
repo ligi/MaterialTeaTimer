@@ -1,12 +1,12 @@
 package org.ligi.materialteatimer
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_tealist.*
+import org.ligi.kaxt.startActivityFromClass
 
 class TeaListActivity : AppCompatActivity() {
 
@@ -27,7 +27,7 @@ class TeaListActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId){
         android.R.id.home -> {
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivityFromClass(MainActivity::class.java)
             finish()
             true
         }
