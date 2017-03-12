@@ -4,5 +4,5 @@ import com.chibatching.kotpref.KotprefModel
 
 object State : KotprefModel() {
 
-    var lastSelectedTeaName by stringPrefVar()
+    var lastSelectedTeaName by stringPref()
 }
