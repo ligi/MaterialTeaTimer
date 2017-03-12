@@ -26,9 +26,7 @@ object Timer {
         return (baseTime - startTime) / 1000
     }
 
-    fun isPaused(): Boolean {
-        return pauseTime != null
-    }
+    fun isPaused() = pauseTime != null
 
 
 }
