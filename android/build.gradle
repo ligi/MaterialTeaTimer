@@ -33,7 +33,7 @@ android {
     }
 
 
-    flavorDimensions "build", "fire"
+    flavorDimensions "build", "fire", "store"
 
     productFlavors {
 
@@ -53,7 +53,39 @@ android {
         prod {
             dimension "build"
         }
+
+        forFDroid {
+            dimension "store"
+            buildConfigField 'String', 'STORE', '"fdroid"'
+        }
+
+        forAmazon {
+            dimension "store"
+            buildConfigField 'String', 'STORE', '"amazon"'
+        }
+
+        forPlay {
+            dimension "store"
+            buildConfigField 'String', 'STORE', '"play"'
+        }
     }
+
+    android.variantFilter { variant ->
+        def build = variant.getFlavors().get(0).name
+        def firebase = variant.getFlavors().get(1).name
+        def store = variant.getFlavors().get(2).name
+
+        def isRelease = variant.buildType.name == 'release'
+        def isDebug = variant.buildType.name == 'debug'
+
+        if (((store == 'forAmazon' || store == 'forPlay') && firebase == 'noFirebase')
+                || (store == 'forFDroid' && firebase != 'noFirebase')
+                || (build == 'prod' && isDebug)
+                || (build == 'dev' && isRelease)) {
+            variant.setIgnore(true)
+        }
+    }
+
 
     packagingOptions {
         // needed for assertJ
