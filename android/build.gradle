@@ -33,7 +33,7 @@ android {
     }
 
 
-    flavorDimensions "build", "fire", "store"
+    flavorDimensions "fire", "store"
 
     productFlavors {
 
@@ -43,15 +43,6 @@ android {
 
         noFirebase {
             dimension "fire"
-        }
-
-        dev {
-            dimension "build"
-            minSdkVersion 21
-        }
-
-        prod {
-            dimension "build"
         }
 
         forFDroid {
@@ -71,20 +62,13 @@ android {
     }
 
     android.variantFilter { variant ->
-        def build = variant.getFlavors().get(0).name
-        def firebase = variant.getFlavors().get(1).name
-        def store = variant.getFlavors().get(2).name
+        def fireBase = variant.getFlavors().get(0).name
+        def store = variant.getFlavors().get(1).name
 
-        def isRelease = variant.buildType.name == 'release'
-        def isDebug = variant.buildType.name == 'debug'
+        variant.setIgnore((project.hasProperty("singleFlavor") && (store != 'forPlay') && (build != 'prod')) ||
+                ((store == 'forAmazon' || store == 'forPlay') && fireBase == 'noFirebase') ||
+                (store == 'forFDroid' && fireBase != 'noFirebase'))
 
-        if ((project.hasProperty("singleFlavor") && (store != 'forPlay') && (build != 'prod')) ||
-                ((store == 'forAmazon' || store == 'forPlay') && firebase == 'noFirebase')
-                || (store == 'forFDroid' && firebase != 'noFirebase')
-                || (build == 'prod' && isDebug)
-                || (build == 'dev' && isRelease)) {
-            variant.setIgnore(true)
-        }
     }
 
 
