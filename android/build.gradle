@@ -130,3 +130,8 @@ android.applicationVariants.all { variant ->
         }
     }
 }
+
+spoon {
+    debug = true
+    grantAllPermissions = true
+}
