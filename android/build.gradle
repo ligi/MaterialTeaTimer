@@ -105,7 +105,7 @@ dependencies {
     compile "com.chibatching.kotpref:initializer:$kotpref_version"
 
     compile 'com.github.ligi:ExtraCompats:0.4'
-    compile 'com.github.ligi:KAXT:0.16'
+    compile 'com.github.ligi:KAXT:0.17'
 
     withFirebaseCompile 'com.google.firebase:firebase-core:9.6.1'
 
