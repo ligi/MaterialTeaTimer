@@ -113,7 +113,7 @@ dependencies {
     androidTestCompile "com.android.support:appcompat-v7:$support_version"
     androidTestCompile "com.android.support:design:$support_version"
 
-    androidTestCompile 'com.github.ligi:trulesk:0.18'
+    androidTestCompile 'com.github.ligi:trulesk:0.19'
 }
 
 if (hasProperty("gms")) {
