@@ -19,8 +19,8 @@ import android.text.method.LinkMovementMethod
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.help.view.*
 import org.ligi.compat.HtmlCompat
 import org.ligi.kaxt.getAlarmManager
 import org.ligi.kaxt.setExactAndAllowWhileIdleCompat
@@ -143,11 +143,11 @@ class MainActivity : AppCompatActivity() {
             true
         }
         R.id.menuInfo -> {
-            val textView = layoutInflater.inflate(R.layout.help, null, false).findViewById(R.id.helpText) as TextView
-            textView.text = HtmlCompat.fromHtml(getString(R.string.help))
-            textView.movementMethod = LinkMovementMethod()
+            val view = layoutInflater.inflate(R.layout.help, null, false)
+            view.helpText.text = HtmlCompat.fromHtml(getString(R.string.help))
+            view.helpText.movementMethod = LinkMovementMethod()
             AlertDialog.Builder(this)
-                    .setView(textView)
+                    .setView(view)
                     .setPositiveButton(android.R.string.ok, null)
                     .show()
             true
