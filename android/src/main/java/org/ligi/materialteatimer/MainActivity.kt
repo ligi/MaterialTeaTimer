@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                     play_pause.setImageDrawable(drawable)
                 }
             }
-            supportInvalidateOptionsMenu()
+            invalidateOptionsMenu()
 
             handler.postDelayed(this, 50)
         }
