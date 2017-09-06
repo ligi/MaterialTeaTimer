@@ -16,7 +16,7 @@ import java.util.*
 
 class TimerReceiver : BroadcastReceiver() {
 
-    val notificationId by lazy { Random().nextInt() }
+    private val notificationId by lazy { Random().nextInt() }
 
     override fun onReceive(context: Context, intent: Intent?) {
 
@@ -26,7 +26,7 @@ class TimerReceiver : BroadcastReceiver() {
                 Intent(context, MainActivity::class.java),
                 PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val notification = NotificationCompat.Builder(context)
+        val notification = NotificationCompat.Builder(context, "main")
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle(context.getString(R.string.app_name))
                 .setContentIntent(pendingIntent)
