@@ -6,8 +6,8 @@ apply plugin: 'de.mobilej.unmock'
 apply plugin: 'com.github.ben-manes.versions'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 27
+    buildToolsVersion "27"
 
     defaultConfig {
         applicationId "org.ligi.materialteatimer"
