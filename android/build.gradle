@@ -119,7 +119,7 @@ dependencies {
     compile 'com.github.ligi:ExtraCompats:0.4'
     compile 'com.github.ligi:KAXT:0.19'
 
-    withFirebaseCompile 'com.google.firebase:firebase-core:11.4.0'
+    withFirebaseCompile 'com.google.firebase:firebase-core:11.8.0'
 
     androidTestCompile "com.android.support:support-annotations:$support_version"
     androidTestCompile "com.android.support:appcompat-v7:$support_version"
