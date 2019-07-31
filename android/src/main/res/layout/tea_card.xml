@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/pass_card"
@@ -9,7 +9,7 @@
 
         android:orientation="vertical">
 
-    <android.support.percent.PercentRelativeLayout
+    <androidx.percentlayout.widget.PercentRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <ImageView
@@ -54,7 +54,7 @@
                   android:fontFamily="sans-serif"
                   android:layout_height="wrap_content"/>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/infoIcon"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
@@ -62,5 +62,5 @@
                 app:srcCompat="@drawable/ic_action_info_outline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-    </android.support.percent.PercentRelativeLayout>
-</android.support.v7.widget.CardView>
+    </androidx.percentlayout.widget.PercentRelativeLayout>
+</androidx.cardview.widget.CardView>

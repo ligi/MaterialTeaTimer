@@ -11,10 +11,10 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
-import android.support.graphics.drawable.VectorDrawableCompat
-import android.support.v4.app.ActivityOptionsCompat
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
+import androidx.core.app.ActivityOptionsCompat
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import android.text.method.LinkMovementMethod
 import android.view.Menu
 import android.view.MenuItem
