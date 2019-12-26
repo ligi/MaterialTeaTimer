@@ -11,20 +11,21 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
-import androidx.core.app.ActivityOptionsCompat
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.text.method.LinkMovementMethod
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.help.view.*
 import org.ligi.compat.HtmlCompat
 import org.ligi.kaxt.getAlarmManager
 import org.ligi.kaxt.setExactAndAllowWhileIdleCompat
 import org.ligi.materialteatimer.receiver.TimerReceiver
+import kotlin.math.abs
 
 
 class MainActivity : AppCompatActivity() {
@@ -54,8 +55,8 @@ class MainActivity : AppCompatActivity() {
                 ""
             }
 
-            timer_min.text = prefix + Math.abs(remaining / 60).toString() + "m"
-            timer_sec.text = Math.abs(remaining % 60).toString() + "s"
+            timer_min.text = prefix + abs(remaining / 60).toString() + "m"
+            timer_sec.text = abs(remaining % 60).toString() + "s"
 
             tea_progress.max = TeaProvider.currentTea.brewTime
             tea_progress.progress = Timer.elapsedSeconds().toInt()
